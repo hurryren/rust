@@ -1,8 +1,16 @@
+#![allow(dead_code)]
+
 mod hello;
 mod primitive;
+mod data_type;
+mod immutable_value;
+mod grammer;
 
 
 fn main() {
     // hello::hello_main();
-    primitive::main_primitive();
+    // primitive::main_primitive();
+    // data_type::main_data_type();
+    // immutable_value::main_value();
+    grammer::main_grammer();
 }

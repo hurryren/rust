@@ -1,12 +1,12 @@
-#[allow(dead_code)]
+#![allow(dead_code)]
 pub fn main_primitive(){
     // compound_type();
     // operator1();
-    tuple1();
-
+    // tuple1();
+    array1();
 }
 
-#[allow(dead_code)]
+
 fn compound_type(){
     let logical:bool = true;
 
@@ -21,7 +21,7 @@ fn compound_type(){
     println!("{}",inferred_type);
 }
 
-#[allow(dead_code)]
+
 fn operator1(){
     println!("1 + 2 = {}",1u32 + 2);
 
@@ -41,7 +41,7 @@ fn operator1(){
 }
 
 
-#[allow(dead_code)]
+
 fn tuple1(){
     fn reverse(pair: (i32, bool)) -> (bool,i32){
         let (integer, boolean) = pair;
@@ -84,5 +84,47 @@ fn tuple1(){
 
     let matrix = Matrix(1.1, 1.2, 2.1, 2.2);
     println!("{:?}", matrix);
-
 }
+
+
+fn array1(){
+    use std::mem;
+
+    fn analyze_slice(slice:&[i32]){
+        println!("first element of the slice: {}",slice[0]);
+        println!("the slice has {} elements", slice.len());
+    }
+
+    let xs = [1,2,3,4,5];
+
+    // 所有元素初始化成相同的值
+    let ys = [0;500];
+
+    println!("first element of the array: {}",xs[0]);
+    println!("seconed element of the array: {}",xs[1]);
+
+    println!("array size: {}",xs.len());
+
+    // 数组是在栈中分配的
+    println!("array occupies {} bytes", mem::size_of_val(&xs));
+
+    // 数组可以自动被借用成为slice
+    println!("borrow the whole array as a slice");
+    analyze_slice(&xs);
+
+    println!("borrow a sectionif the array as a slice");
+    analyze_slice(&ys[1..4]);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,5 +1,5 @@
 
-#[allow(dead_code)]
+#![allow(dead_code)]
 pub fn hello_main(){
     // println!("hello world");
     // hello_world();
@@ -12,12 +12,12 @@ pub fn hello_main(){
 
 
 }
-#[allow(dead_code)]
+
 fn hello_world(){
     println!("hello world");
 }
 
-#[allow(dead_code)]
+
 fn fmt_print(){
     println!("{} days",31);
     println!("{0}, this is {1}. {1}, this is {0}","alice", "bob");
@@ -34,13 +34,13 @@ fn fmt_print(){
     let pi = 3.1415926;
     println!(" pi is {:.10}",pi);
 
-    #[allow(dead_code)]
-    struct structure(i32);
+
+    struct Structure(i32);
 
     // println!("this struct '{:?}' won't print...",structure(3));
 }
 
-#[allow(dead_code)]
+
 fn fmt_debug(){
     // 这个结构体不能使用 ‘fmt::Display' 或 ’fmt::Debug‘ 来进行打印
     struct UnPrintable(i32);
@@ -53,7 +53,7 @@ fn fmt_debug(){
 
 }
 
-#[allow(dead_code)]
+
 fn fmt_display(){
     // 使用 use 导入 fmt 模块使得 fmt::Display 可用
     use std::fmt;
@@ -77,7 +77,7 @@ fn fmt_display(){
     println!("{}",Structure(4));
 }
 
-#[allow(dead_code)]
+
 fn fmt_display1(){
     use std::fmt;  // 导入 fmt
 
@@ -130,7 +130,7 @@ fn fmt_display1(){
 
 }
 
-#[allow(dead_code)]
+
 fn fmt_list(){
     use std::fmt;
 
@@ -159,7 +159,7 @@ fn fmt_list(){
     println!("{}",v);
 }
 
-#[allow(dead_code)]
+
 fn fmt_format(){
     use std::fmt::{self, Formatter, Display};
 
