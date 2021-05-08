@@ -4,7 +4,8 @@ pub fn main_grammer() {
     // f_loop();
     // f_loop1();
     // f_loop_back();
-    f_for()
+    // f_for()
+    f_for_iter();
 }
 
 fn f_loop() {
@@ -85,4 +86,19 @@ fn f_for(){
 
     - iter
         每次迭代中借用集合中的一个元素。这样集合本身不会被改变，循环之后仍可以使用
+    - into_iter
+        所有权被转移，之后无法在使用
+    - iter_mut
+        可变借用，允许集合被修改
 */
+
+fn f_for_iter(){
+    let names = vec!["xiao", "ming","hong"];
+
+    for name in names.iter(){
+        match name{
+            &"xiao" => println!("there is a chinese among us!"),
+            _ => println!("hello {}",name),
+        }
+    }
+}
