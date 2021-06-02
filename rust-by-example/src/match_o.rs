@@ -1,5 +1,7 @@
 #![allow(dead_code)]
 
+use std::option;
+
 pub fn main_match() {
     // f_match();
     // match_tuple();
@@ -7,7 +9,8 @@ pub fn main_match() {
     // f_reference();
     // match_struct();
     // match_guard();
-    f_if_net();
+    // f_if_net();
+    while_let();
 }
 
 fn f_match() {
@@ -167,4 +170,19 @@ fn f_if_net(){
         println!("I don't like letters. let's go with an emotion:");
     };
 
+}
+
+
+fn while_let(){
+    let mut optional = Some(0);
+
+    while let Some(i) = optional {
+        if i > 9{
+            println!("greater than 9, quit");
+            optional = None;
+        }else {
+            println!("i is {:?}. try again",i);
+            optional = Some(i+1);
+        }
+    }
 }
