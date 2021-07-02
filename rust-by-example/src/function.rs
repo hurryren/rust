@@ -4,7 +4,9 @@ use std::borrow::Borrow;
 
 pub fn main_function(){
     // hello_func();
-    method_func();
+    // method_func();
+    closure_func();
+
 }
 
 fn hello_func(){
@@ -114,8 +116,25 @@ fn method_func(){
     let pair = Pair(Box::new(1),Box::new(2));
 
     pair.destroy();
+}
 
+fn closure_func(){
+    // 通过闭包和函数实现自增
 
+    fn function(i: i32) -> i32{i+1}
+    // 闭包是匿名的
+    // 类型标注和函数的一样，不过类型标注和使用 {} 来围住函数体都是可选的
+    // 匿名函数 （nameless function） 被赋值给合适的命名的变量
+    let closure_annoted = |i:i32| -> i32 { i+ 1};
+    let closure_inferred = |i| i+1;
 
+    let i = 1;
+
+    println!("function: {}",function(i));
+    println!("closure_annoted: {}",closure_annoted(i));
+    println!("closure_inferred: {}",closure_inferred(i));
+
+    let one = || 1;
+    println!("closure returning on : {}", one());
 
 }
